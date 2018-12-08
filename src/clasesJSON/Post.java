@@ -45,6 +45,10 @@ public class Post {
         fecha = new Date((long)codigo*1000);
     }
 
+    public Date getFecha(){
+        return fecha;
+    }
+
     public ArrayList<Double> getLocation() {
 
         return location;

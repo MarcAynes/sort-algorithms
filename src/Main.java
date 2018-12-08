@@ -13,13 +13,13 @@ import static Pantalla.Menu.interfazMenu;
 public class Main {
     public static void main(String[] args) {
         Gson gson = new Gson();
-        BufferedReader br = null;
+        BufferedReader br;
 
         try {
-            br = new BufferedReader(new FileReader("assets\\xs_dataset.json"));
+            br = new BufferedReader(new FileReader("assets\\m_dataset.json"));
             User[] users = gson.fromJson(br, User[].class);
 
-            for (User i: users) {
+            for (User i : users) {
                 i.convertirFechas();
             }
 
@@ -28,15 +28,8 @@ public class Main {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
             System.out.println("Error de lectura de JSON");
-        }   finally {
-            if (br != null){
-                try {
-                    br.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
 
+
+        }
     }
 }
