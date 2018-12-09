@@ -7,6 +7,30 @@ import java.util.Scanner;
 
 public class Menu {
 
+    private static String comprobarDouble(){
+        String aux;
+        Scanner sc = new Scanner(System.in);
+        boolean encontrado;
+
+
+        do {
+            encontrado = false;
+            aux = sc.nextLine();
+            for (int i = 0; i < aux.length(); i++){
+                if(!((aux.charAt(i) > '0' && aux.charAt(i) < '9') || aux.charAt(i) == '.')){
+                    encontrado = true;
+                }
+            }
+
+            if (encontrado){
+                System.out.println("Error! Se debe de introducir un número!");
+            }
+
+        } while (encontrado);
+
+        return aux;
+    }
+
     private static void menuMetodos(){
         System.out.println("\nElija el método de ordenación que quiera utilizar:");
         System.out.println("1. Quick Sort");
@@ -76,6 +100,21 @@ public class Menu {
                     break;
 
                 case '2':
+
+                    double latitud, longitud;
+                    String aux;
+
+                    System.out.println("Latitud respecto a coordenadas de su posición actual:");
+
+                    aux = comprobarDouble();
+                    latitud = Double.parseDouble(aux);
+
+                    System.out.println("Longitud respecto a coordenadas de su posición actual:");
+
+                    aux = comprobarDouble();
+                    longitud = Double.parseDouble(aux);
+
+
 
                     break;
 

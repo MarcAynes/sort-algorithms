@@ -17,7 +17,6 @@ public class OrdenarTiempo {
 
     }
     public void InsertionSort(){
-
         Post aux;
         for (int i = 0; i < lista_posts.size() - 1; i++){
             for (int n = i; n > 0; n--){
@@ -25,11 +24,11 @@ public class OrdenarTiempo {
                     aux = lista_posts.get(n);
                     lista_posts.set(n, lista_posts.get(n - 1));
                     lista_posts.set(n - 1, aux);
-
                 }
             }
         }
     }
+
     public void MergeSort(int i, int j){
         int mig;
         if (i < j){

@@ -22,6 +22,8 @@ public class Post {
 
     private Date fecha;
 
+    private double distanciaLocalizacion;
+
     public int getId() {
 
         return id;
@@ -89,4 +91,11 @@ public class Post {
         this.commented_by = commentedBy;
     }
 
+    public double getDistanciaLocalizacion() {
+        return distanciaLocalizacion;
+    }
+
+    public void setDistanciaLocalizacion(double distanciaLocalizacion) {
+        this.distanciaLocalizacion = distanciaLocalizacion;
+    }
 }
