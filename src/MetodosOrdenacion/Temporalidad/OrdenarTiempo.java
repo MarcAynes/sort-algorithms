@@ -132,11 +132,6 @@ public class OrdenarTiempo {
         return a;
 
     }
-    public void muestraPosts() {
-        for(Post p : lista_posts){
-            System.out.println(p.getId());
-        }
-    }
 
     public int longitud(){
 
@@ -156,8 +151,8 @@ public class OrdenarTiempo {
     private void countSort(int n, int exp) {
         List<Post> output = Arrays.asList(new Post[n]); // output array de tamaño n
         int count[] = new int[10];
-        int i;
         Arrays.fill(count,0);
+        int i;
 
         // Cuenta de que números aparecen de entre el 0 al 9
         for (i = 0; i < n; i++) {
@@ -180,23 +175,25 @@ public class OrdenarTiempo {
     }
 
     // Basado en el ejemplo de geeksforgeeks.org
+
     public void RadixSort(int longitud) {
         // Buscamos el post con fecha mayor para saber cuantas cifras tendrán los números de la lista de posts
+
         Post post_mayor = getMax(longitud);
         int max = post_mayor.getPublished();
 
         // Usamos método de ordenación auxiliar "Counting Sort". Este método lo aplicamos a partir de las unidades,
         // decenas, ... , usando como referencia el valor "Published" y en cada iteración ordenando los posts al completo
+
         for (int exp = 1; max/exp > 0; exp *= 10) {
             countSort(longitud, exp);
         }
 
     }
 
-    // A utility function to print an array
     public void print() {
-        System.out.println("Orden Prioridad     ID      Fecha de publicacion");
-        System.out.println("---------------   ------    --------------------");
+        System.out.println("Orden Prioridad    ID     Fecha de publicacion");
+        System.out.println("---------------  ------   --------------------");
 
         for (int i=0; i < lista_posts.size(); i++){
             System.out.print("   " + (i + 1) + ".       " + lista_posts.get(lista_posts.size() - 1 - i).getId() + "       " + lista_posts.get(lista_posts.size() - 1 - i).getFecha() + "\n");
