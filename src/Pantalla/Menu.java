@@ -1,5 +1,6 @@
 package Pantalla;
 
+import MetodosOrdenacion.Ubicacion.OrdenarUbicacion;
 import clasesJSON.User;
 import MetodosOrdenacion.Temporalidad.OrdenarTiempo;
 
@@ -7,8 +8,9 @@ import java.util.Scanner;
 
 public class Menu {
 
-    private static String comprobarDouble(){
+    private static double comprobarDouble(int opcion){
         String aux;
+        double valorD = 0.0;
         Scanner sc = new Scanner(System.in);
         boolean encontrado;
 
@@ -16,6 +18,7 @@ public class Menu {
         do {
             encontrado = false;
             aux = sc.nextLine();
+
             for (int i = 0; i < aux.length(); i++){
                 if(!((aux.charAt(i) > '0' && aux.charAt(i) < '9') || aux.charAt(i) == '.')){
                     encontrado = true;
@@ -25,10 +28,28 @@ public class Menu {
             if (encontrado){
                 System.out.println("Error! Se debe de introducir un número!");
             }
+            else {
+                valorD = Double.parseDouble(aux);
+
+                switch (opcion){
+                    case 0:
+                        if(valorD < -90.0 || valorD > 90.0){
+                            System.out.println("Error! Latitud tiene valores incoherentes!");
+                            encontrado = true;
+                        }
+                        break;
+                    case 1:
+                        if(valorD < -180.0 || valorD > 180.0){
+                            System.out.println("Error! Longitud tiene valores incoherentes!");
+                            encontrado = true;
+                        }
+                        break;
+                }
+            }
 
         } while (encontrado);
 
-        return aux;
+        return valorD;
     }
 
     private static void menuMetodos(){
@@ -77,8 +98,7 @@ public class Menu {
                                 break;
 
                             case '3':
-                                ot.InsertionSort();
-                                ot.print();
+
                                 break;
 
                             case '4':
@@ -87,13 +107,11 @@ public class Menu {
                                 break;
 
                             case '5':
-
                                 break;
 
                             default:
                                 System.out.println("Error! Opción introducida no está dentro del rango del menú!");
                                 break;
-
 
                         }
 
@@ -102,21 +120,53 @@ public class Menu {
                     break;
 
                 case '2':
-
                     double latitud, longitud;
-                    String aux;
 
                     System.out.println("Latitud respecto a coordenadas de su posición actual:");
 
-                    aux = comprobarDouble();
-                    latitud = Double.parseDouble(aux);
+                    latitud = comprobarDouble(0);
 
                     System.out.println("Longitud respecto a coordenadas de su posición actual:");
 
-                    aux = comprobarDouble();
-                    longitud = Double.parseDouble(aux);
+                    longitud = comprobarDouble(1);
+
+                    OrdenarUbicacion oub = new OrdenarUbicacion(users, latitud, longitud);
+
+                    do {
+                        menuMetodos();
+                        opcionM = sc.next().charAt(0);
 
 
+                        switch (opcionM){
+                            case '1':
+
+                                oub.QuickSort(0, oub.longitud());
+                                oub.print();
+                                break;
+
+                            case '2':
+
+                                break;
+
+                            case '3':
+
+                                break;
+
+                            case '4':
+                                oub.RadixSort(oub.longitud());
+                                oub.print();
+                                break;
+
+                            case '5':
+                                break;
+
+                            default:
+                                System.out.println("Error! Opción introducida no está dentro del rango del menú!");
+                                break;
+
+                        }
+
+                    } while (opcionM > '5' || opcionM < '1');
 
                     break;
 

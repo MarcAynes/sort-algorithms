@@ -16,7 +16,7 @@ public class Main {
         BufferedReader br;
 
         try {
-            br = new BufferedReader(new FileReader("assets\\m_dataset.json"));
+            br = new BufferedReader(new FileReader("assets\\xs_dataset.json"));
             User[] users = gson.fromJson(br, User[].class);
 
             for (User i : users) {
