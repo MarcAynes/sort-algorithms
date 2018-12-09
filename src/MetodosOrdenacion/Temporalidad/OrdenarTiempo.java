@@ -18,9 +18,12 @@ public class OrdenarTiempo {
     }
     public void InsertionSort(){
         Post aux;
+        //recorrem tota la array d'elements
         for (int i = 0; i < lista_posts.size() - 1; i++){
+            //comparem cada element amb tots els altres
             for (int n = i; n > 0; n--){
                 if (lista_posts.get(n).getPublished() < lista_posts.get(n - 1).getPublished()){
+                    //intercambiem posisions
                     aux = lista_posts.get(n);
                     lista_posts.set(n, lista_posts.get(n - 1));
                     lista_posts.set(n - 1, aux);
@@ -33,7 +36,7 @@ public class OrdenarTiempo {
         int mig;
         if (i < j){
             mig = (int) Math.floor((i + j)/2);
-            System.out.println(mig);
+            //System.out.println(mig);
             MergeSort(i, mig);
             MergeSort(mig + 1, j);
             merge(i, mig, j);
@@ -70,8 +73,9 @@ public class OrdenarTiempo {
             k2++;
             cursor++;
         }
+
         cursor = 0;
-        kr = i;
+        kr = 0;
 
         while (kr <= j){
             lista_posts.set(kr, b[cursor]);

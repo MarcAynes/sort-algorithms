@@ -67,12 +67,12 @@ public class Menu {
                         switch (opcionM){
                             case '1':
 
-                                ot.QuickSort(0, ot.longitud());
+                                ot.QuickSort(0, ot.longitud() - 1);
                                 ot.print();
                                 break;
 
                             case '2':
-                                ot.MergeSort(0, ot.longitud());
+                                ot.MergeSort(0, ot.longitud() - 1);
                                 ot.print();
                                 break;
 
