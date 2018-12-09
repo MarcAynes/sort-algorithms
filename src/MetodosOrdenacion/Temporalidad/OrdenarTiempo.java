@@ -16,11 +16,25 @@ public class OrdenarTiempo {
         }
 
     }
+    public void InsertionSort(){
 
+        Post aux;
+        for (int i = 0; i < lista_posts.size() - 1; i++){
+            for (int n = i; n > 0; n--){
+                if (lista_posts.get(n).getPublished() < lista_posts.get(n - 1).getPublished()){
+                    aux = lista_posts.get(n);
+                    lista_posts.set(n, lista_posts.get(n - 1));
+                    lista_posts.set(n - 1, aux);
+
+                }
+            }
+        }
+    }
     public void MergeSort(int i, int j){
         int mig;
         if (i < j){
-            mig = (int) Math.floor((i + j)/ 2);
+            mig = (int) Math.floor((i + j)/2);
+            System.out.println(mig);
             MergeSort(i, mig);
             MergeSort(mig + 1, j);
             merge(i, mig, j);
@@ -159,7 +173,7 @@ public class OrdenarTiempo {
             count[((lista_posts.get(i)).getPublished()/exp)%10]--;
         }
 
-            lista_posts = output;
+        lista_posts = output;
     }
 
     // Basado en el ejemplo de geeksforgeeks.org
