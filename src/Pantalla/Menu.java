@@ -77,7 +77,8 @@ public class Menu {
                                 break;
 
                             case '3':
-
+                                ot.InsertionSort();
+                                ot.print();
                                 break;
 
                             case '4':
@@ -86,6 +87,7 @@ public class Menu {
                                 break;
 
                             case '5':
+
                                 break;
 
                             default:
@@ -95,7 +97,7 @@ public class Menu {
 
                         }
 
-                    } while (opcionM > '4' || opcionM < '1');
+                    } while (opcionM > '5' || opcionM < '1');
 
                     break;
 
