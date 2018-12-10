@@ -21,6 +21,8 @@ public class User {
 
     private ArrayList<Integer> commentedPosts = null;
 
+    private double puntuacion;
+
     public String getUsername() {
 
         return username;
@@ -111,6 +113,13 @@ public class User {
         }
     }
 
+    public double getPuntuacion() {
+        return puntuacion;
+    }
+
+    public void setPuntuacion(double puntuacion) {
+        this.puntuacion = puntuacion;
+    }
 }
 
 

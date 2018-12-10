@@ -24,6 +24,8 @@ public class Post {
 
     private double distanciaLocalizacion;
 
+    private double puntuacion;
+
     public int getId() {
 
         return id;
@@ -97,5 +99,18 @@ public class Post {
 
     public void setDistanciaLocalizacion(double distanciaLocalizacion) {
         this.distanciaLocalizacion = distanciaLocalizacion;
+    }
+
+    public double getPuntuacion() {
+        return puntuacion;
+    }
+
+    public void setPuntuacion(double puntuacion) {
+        this.puntuacion = puntuacion;
+    }
+
+
+    public void aumentarPuntuacion(double puntuacion) {
+        this.puntuacion += puntuacion;
     }
 }

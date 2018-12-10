@@ -3,7 +3,11 @@ package Pantalla;
 import MetodosOrdenacion.Ubicacion.OrdenarUbicacion;
 import clasesJSON.User;
 import MetodosOrdenacion.Temporalidad.OrdenarTiempo;
+import MetodosOrdenacion.Combinacion.Interaccion;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Scanner;
 
 public class Menu {
@@ -61,7 +65,7 @@ public class Menu {
         System.out.println("5. Atrás");
     }
 
-    public static void interfazMenu(User[] users){
+    public static void interfazMenu(User[] users) throws IOException {
         Scanner sc = new Scanner(System.in);
         char opcion, opcionM;
 
@@ -171,7 +175,14 @@ public class Menu {
                     break;
 
                 case '3':
+                    String user;
 
+                    System.out.println("Que nombre de usuario eres?");
+
+                    BufferedReader bufferRead = new BufferedReader(new InputStreamReader(System.in));
+                    user = bufferRead.readLine();
+
+                    Interaccion interaccio = new Interaccion(users, user);
                     break;
 
                 case '4':

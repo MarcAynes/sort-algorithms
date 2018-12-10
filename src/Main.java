@@ -1,5 +1,4 @@
 import clasesJSON.*;
-import clasesJSON.*;
 import com.google.gson.Gson;
 
 import Pantalla.Menu;
@@ -31,6 +30,8 @@ public class Main {
             System.out.println("Error de lectura de JSON");
 
 
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
